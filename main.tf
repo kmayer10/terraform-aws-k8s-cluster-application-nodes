@@ -34,7 +34,7 @@ resource "null_resource" "copy_and_run_join_command_on_application_node" {
 
 locals {
   ip           = split(".", module.create_application_node.instance_private_ip)
-  node_name      = "ip-${ip[0]}-${ip[1]}-${ip[2]}-${ip[3]}"
+  node_name      = "ip-${local.ip[0]}-${local.ip[1]}-${local.ip[2]}-${local.ip[3]}"
 }
 
 resource "kubernetes_node_taint" "thinknyx_1" {
