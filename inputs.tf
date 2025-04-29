@@ -20,3 +20,11 @@ variable "control_plane" {
     user        = optional(string, "ubuntu")
   })
 }
+variable "taint" {
+    type = object({
+      taint_required = optional(bool, false)
+      key            = string
+      value          = string
+      effect         = optional(string, "NoSchedule")
+    })
+}
